@@ -1,0 +1,23 @@
+apiVersion: krew.googlecontainertools.github.com/v1alpha2
+kind: Plugin
+metadata:
+  name: helloplugin
+spec:
+  shortDescription: Display hello.
+  version: v0.0.1
+  description: |
+    Sample plugin.
+  caveats: |
+    If fzf is installed on your machine, you can interactively choose
+    between the entries using the arrow keys, or by fuzzy searching
+    as you type.
+    See https://github.com/ahmetb/kubectx for customization and details.
+  platforms:
+  - selector:
+      matchExpressions:
+      - key: os
+        operator: In
+        values:
+        - darwin
+        - linux
+    bin: ./sampleplugin.sh
